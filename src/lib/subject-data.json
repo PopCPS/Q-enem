@@ -1,0 +1,88 @@
+{
+  "subjects": {
+    "natureza": {
+      "name": "Ciências da Natureza",
+      "paragraphs": [
+        {
+          "title": "O que são Ciências da Natureza?",
+          "text": "As Ciências da Natureza são um conjunto de disciplinas que estudam os aspectos naturais do meio ambiente, incluindo os seres vivos e suas interações. Essa área abrange matérias como Biologia, Química e Física, que se aprofundam nos fenômenos biológicos, químicos e físicos."
+        },
+        {
+          "title": "Quais são as matérias de Ciências da Natureza?",
+          "text": "As principais matérias que compõem as Ciências da Natureza são:\nBiologia: Estuda a vida, as espécies, suas classificações e relações com diferentes ecossistemas.\nQuímica: Justifica, prevê e descreve, por meio de leis, os fenômenos que acontecem com a matéria. \nFísica: Estuda os fenômenos da matéria no decorrer do tempo e do espaço, utilizando o método científico.\n\nAlém disso, existem disciplinas interdisciplinares que se ramificam das Ciências da Natureza, como Geologia e Oceanografia"
+        },
+        {
+          "title": "Diferenças entre Ciências da Natureza, Humanas e Exatas",
+          "text": "Ciências da Natureza: Focam no estudo dos fenômenos naturais e das leis que regem a matéria, utilizando métodos científicos para explicar processos biológicos, químicos e físicos."
+        },
+        {
+          "title": "Importância no Enem",
+          "text": "No Exame Nacional do Ensino Médio (Enem), a prova de Ciências da Natureza e suas Tecnologias é composta por 45 questões objetivas de múltipla escolha, envolvendo conhecimentos de Biologia, Física e Química. Essas questões exigem um repertório integrado e interpretativo por parte do estudante."
+        }
+      ]
+    },
+    "humanas": {
+      "name": "Ciências Humanas",
+      "paragraphs": [
+        {
+          "title": "O que são Ciências Humanas?",
+          "text": "As Ciências Humanas são um conjunto de disciplinas que estudam o comportamento humano e as interações sociais, culturais e históricas. Essa área abrange matérias como História, Geografia, Filosofia e Sociologia, que se aprofundam nas relações entre os indivíduos e a sociedade, bem como nas estruturas sociais e nos processos históricos."
+        },
+        {
+          "title": "Quais são as matérias de Ciências Humanas?",
+          "text": "As principais matérias que compõem as Ciências Humanas são:\nHistória: Estuda os eventos passados da humanidade, analisando suas causas e consequências, além de compreender como esses eventos moldaram o presente.\nGeografia: Investiga a relação entre o ser humano e o meio ambiente, incluindo aspectos físicos, econômicos, políticos e sociais dos espaços geográficos.\nFilosofia: Reflete sobre questões fundamentais da existência humana, ética, conhecimento e a natureza do ser. A filosofia estimula o pensamento crítico e a análise.\nSociologia: Analisa as sociedades humanas, suas estruturas, instituições e dinâmicas sociais. A sociologia busca entender como os indivíduos interagem dentro de grupos e comunidades.\nAntropologia: Estuda a diversidade cultural e social dos seres humanos ao longo do tempo e em diferentes contextos, explorando tradições, costumes e modos de vida."
+        },
+        {
+          "title": "Diferenças entre Ciências da Natureza, Humanas e Exatas",
+          "text": "Ciências Humanas: Concentradas no comportamento humano e nas interações sociais. Elas analisam aspectos culturais, históricos e sociais das sociedades."
+        },
+        {
+          "title": "Importância no Enem",
+          "text": "No Exame Nacional do Ensino Médio (Enem), a prova de Ciências Humanas e suas Tecnologias é composta por 45 questões objetivas de múltipla escolha. Essas questões abordam conhecimentos de História, Geografia, Filosofia e Sociologia. Os estudantes devem demonstrar habilidades interpretativas e analíticas, integrando informações de diferentes áreas para responder às questões."
+        }
+      ]
+    },
+    "matematica": {
+      "name": "Matemática e suas tecnólogias",
+      "paragraphs": [
+        {
+          "title": "O que é Matemática e suas Tecnologias",
+          "text": "A matemática e suas tenologias é a ciência que estuda números, formas, estruturas e relações, buscando padrões e leis que governam o universo. Ela é a linguagem universal utilizada para descrever e compreender fenômenos naturais e sociais, desde as partículas subatômicas até as galáxias."
+        },
+        {
+          "title": "Quais é a matéria de Matemática e suas Tecnologias?",
+          "text": "A Matemática e suas tecnologias é um campo vasto e interconectado, englobando diversas áreas de estudo. Cada uma delas explora diferentes aspectos dos números, formas e relações.\nAs principais áreas da Matemática são:\nAritmética: Operações básicas com números.\nÁlgebra: Generalização da aritmética usando símbolos.\nGeometria: Estudo das formas e espaços.\nTrigonometria: Relações entre lados e ângulos de triângulos.\nCálculo: Taxas de variação e acumulações.\nEstatística: Coleta, análise e interpretação de dados.\nProbabilidade: Chances de ocorrência de eventos.\nLógica: Princípios do raciocínio correto."
+        },
+        {
+          "title": "Diferenças entre Ciências da Natureza, Humanas e Exatas" ,
+          "text": "Ciências Exatas: Apresentam raciocínio lógico e respostas exatas, obtidas através da aplicação de teorias e fórmulas.\n\nAs Ciências da Natureza se diferenciam das Ciências Sociais por estudarem a natureza, e das Ciências Humanas por não se focarem no comportamento humano."
+        },
+        {
+          "title": "Importância no Enem",
+          "text": "No Exame Nacional do Ensino Médio (Enem), a prova de Matemática e suas Tecnologias é composta por 45 questões objetivas de múltipla escolha, abrangendo um amplo espectro de conteúdos matemáticos. Essas questões exigem dos estudantes não apenas a memorização de fórmulas e conceitos, mas também a capacidade de aplicar o conhecimento matemático em diferentes contextos e de resolver problemas complexos, muitas vezes interligados com outras áreas do conhecimento."
+        }
+      ]
+    },
+    "portugues": {
+      "name": "Língua portuguesa",
+      "paragraphs": [
+        {
+          "title": "O que é Língua Portuguesa?",
+          "text": "A Língua Portuguesa é a língua oficial de países como Brasil, Portugal, Angola, Moçambique e outros. No contexto educacional, ela é estudada como uma disciplina que abrange a gramática, a literatura, a produção textual e a interpretação de textos. O estudo da Língua Portuguesa visa desenvolver habilidades de comunicação, leitura crítica e escrita eficaz."
+        },
+        {
+          "title": "Quais são as principais matérias de Língua Portuguesa?",
+          "text": "As principais áreas que compõem o estudo da Língua Portuguesa incluem:\nGramática: Estuda as regras e estruturas da língua, incluindo morfologia (estudo das palavras), sintaxe (estrutura das frases), semântica (significado das palavras) e fonética (sons da língua). A gramática ajuda os alunos a compreenderem como usar a língua corretamente em diferentes contextos.\nLiteratura: Explora obras literárias de diferentes períodos e estilos, analisando autores, movimentos literários e contextos históricos. A literatura desenvolve a capacidade crítica e interpretativa dos alunos, além de enriquecer seu vocabulário e compreensão cultural.\nProdução Textual: Envolve a escrita de diferentes tipos de textos, como narrativas, crônicas, ensaios e artigos. Os alunos aprendem a organizar suas ideias, utilizar recursos linguísticos e adaptar seu estilo para diferentes públicos e finalidades.\nInterpretação de Textos: Foca na leitura crítica e na análise de diversos gêneros textuais, desenvolvendo habilidades para identificar ideias principais, inferir significados e compreender contextos. Essa habilidade é essencial para a compreensão de informações em diferentes formatos.\nEstudo dos Gêneros Textuais: Analisa as características de diferentes gêneros textuais (como poemas, contos, notícias e ensaios) e suas funções comunicativas. Isso ajuda os alunos a reconhecerem as particularidades de cada tipo de texto."
+        },
+        {
+          "title": "Diferenças entre Ciências da Natureza, Humanas e Exatas",
+          "text": "Língua Portuguesa: Envolve o estudo da comunicação verbal por meio da gramática, literatura e produção textual. Foca no desenvolvimento das habilidades linguísticas essenciais para uma comunicação eficaz."
+        },
+        {
+          "title": "Importância no Enem",
+          "text": "No Exame Nacional do Ensino Médio (Enem), a prova de Linguagens, Códigos e suas Tecnologias inclui questões sobre Língua Portuguesa, Literatura e outras linguagens (como Artes e Língua Estrangeira). Essa prova exige que os estudantes demonstrem habilidades interpretativas, analíticas e criativas em relação aos textos apresentados. Os alunos devem ser capazes de:\nCompreender e interpretar textos em diferentes gêneros.\nIdentificar recursos linguísticos e estilísticos utilizados pelos autores.\nProduzir textos coerentes e coesos em resposta às propostas apresentadas."
+        }
+      ]
+    }
+  }
+}
