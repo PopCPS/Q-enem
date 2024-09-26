@@ -14,8 +14,12 @@ export const SignIn = () => {
     setIsPasswordVisible(!isPasswordVisible)
   }
 
+  //
+  //  Criar lógica para Login 
+  //
+
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center h-screen bg-signin bg-no-repeat bg-center bg-cover">
       <div className="flex flex-col gap-8 w-[377px] p-8 bg-transDark/50 rounded-4"> 
         <Logo width={300} />
 
@@ -48,6 +52,7 @@ export const SignIn = () => {
             CADASTRE-SE
           </Button>
         </div>
+
       </div>
     </div>
   )
