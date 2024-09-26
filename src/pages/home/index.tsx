@@ -3,7 +3,7 @@ import { Logo } from "../../components/logo"
 
 export const Home = () => {
   return (
-    <>
+    <div className="min-size-screen p-6 flex flex-col items-center gap-8">
 
       <Header />
 
@@ -46,6 +46,6 @@ export const Home = () => {
 
       </div>
 
-    </>
+    </div>
   )
 }

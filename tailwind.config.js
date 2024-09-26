@@ -11,6 +11,7 @@ export default {
       },
       colors: {
         transDark: '#3F3F3F',
+        cyan: '#32ADE6',
       },
       borderRadius: {
         '4': '4px',
