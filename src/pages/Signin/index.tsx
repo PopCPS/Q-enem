@@ -20,8 +20,8 @@ export const SignIn = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-signin bg-no-repeat bg-center bg-cover">
-      <div className="flex flex-col gap-8 w-[377px] p-8 bg-transDark/50 rounded-4"> 
-        <Logo width={300} />
+      <form className="flex flex-col gap-8 w-[377px] p-8 bg-transDark/50 rounded-4"> 
+        <Logo width={313} />
 
         <div className="flex flex-col gap-3">
           <Input
@@ -48,12 +48,15 @@ export const SignIn = () => {
           <Button>
             ENTRAR
           </Button>
-          <Button onClick={() => navigate('/signup')}>
+          <Button onClick={e => {
+            e.preventDefault()
+            navigate('/signup')
+          }}>
             CADASTRE-SE
           </Button>
         </div>
 
-      </div>
+      </form>
     </div>
   )
 }
