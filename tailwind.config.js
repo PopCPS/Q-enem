@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         sans: 'Inter',
+        title: 'Julius Sans One'
       },
       colors: {
         transDark: '#3F3F3F',

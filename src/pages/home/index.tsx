@@ -1,7 +1,30 @@
+import { useNavigate } from "react-router-dom"
 import { Header } from "../../components/header"
 import { Logo } from "../../components/logo"
 
 export const Home = () => {
+
+  const navigate = useNavigate()
+
+  const subjects = [
+    {
+      "name": "Natureza",
+      "img": "Natureza.png"
+    },
+    {
+      "name": "Humanas",
+      "img": "Humanas.webp"
+    },
+    {
+      "name": "Matemática",
+      "img": "Matemática.jpg"
+    },
+    {
+      "name": "Português",
+      "img": "Português.png"
+    },
+  ]
+
   return (
     <div className="min-size-screen p-6 flex flex-col items-center gap-8">
 
@@ -10,7 +33,7 @@ export const Home = () => {
       <div className="flex w-full h-[640px] relative">
         <img 
           className="w-full rounded-4"
-          src="/Hero.png" 
+          src="/home/Hero.png" 
           alt="hero"  
         />
         <div className="flex items-center justify-center rounded-4 p-4 absolute right-[210px] top-[270px] bg-transDark/50">
@@ -20,29 +43,22 @@ export const Home = () => {
 
       <div className="flex gap-5 w-[960px]">
 
-        <button className="flex items-center justify-center rounded-4 size-[225px] relative bg-top" style={{ backgroundImage: "url('/Natureza.png')" }}>
-          <div className="absolute text-2xl p-2 rounded-4 bg-transDark/70 text-white">
-            <h3>Natureza</h3>
-          </div>
-        </button>
-
-        <button className="flex items-center justify-center rounded-4 size-[225px] relative bg-center bg-cover" style={{ backgroundImage: "url('/Humanas.webp')" }}>
-          <div className="absolute text-2xl p-2 rounded-4 bg-transDark/70 text-white">
-            <h3>Humanas</h3>
-          </div>
-        </button>
-
-        <button className="flex items-center justify-center rounded-4 size-[225px] relative bg-center bg-cover" style={{ backgroundImage: "url('/Matemática.jpg')" }}>
-          <div className="absolute text-2xl p-2 rounded-4 bg-transDark/70 text-white">
-            <h3>Matemática</h3>
-          </div>
-        </button>
-
-        <button className="flex items-center justify-center rounded-4 size-[225px] relative bg-left bg-cover" style={{ backgroundImage: "url('/Português.png')" }}>
-          <div className="absolute text-2xl p-2 rounded-4 bg-transDark/70 text-white">
-            <h3>Português</h3>
-          </div>
-        </button>
+        {subjects.map(subject => {
+          return (
+            <button 
+              className="relative group flex items-center justify-center rounded-4 overflow-hidden size-[225px]" 
+              onClick={() => navigate(subject.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase())}  
+            >
+              <div 
+                style={{ backgroundImage: `url('/home/${subject.img}')` }}  
+                className="size-full bg-center bg-cover transition-all duration-200 group-hover:scale-105"
+              />
+              <div className="absolute text-2xl p-2 rounded-4 bg-transDark/70 text-white">
+                <h3>{subject.name}</h3>
+              </div>
+            </button>
+          )
+        })}
 
       </div>
 
