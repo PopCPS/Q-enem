@@ -6,6 +6,7 @@ import { Home } from './pages/home/index.tsx'
 import { AboutSubject } from './pages/about-subject/index.tsx';
 import { Signup } from './pages/Signup/index.tsx';
 import { SignIn } from './pages/Signin/index.tsx';
+import { Questions } from './pages/question-page/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/:subject' element={<AboutSubject />} />
+        <Route path='/questions' element={<Questions />} />
         <Route path='/signin' element={<SignIn/>} />
         <Route path='/signup' element={<Signup/>} />
       </Routes>
