@@ -18,7 +18,7 @@ export const AboutSubject = () => {
     navigate('/')
     return
   }
-  
+  // @ts-expect-error: if statement treats if params are invalid
   const subjectData = data.subjects[subject]
   console.log(subject)
 
