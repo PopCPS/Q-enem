@@ -7,8 +7,12 @@ export const ProgressBar = ({
 }: ProgressBarProps) => {
 
   return (
-    <div className="h-[14px] w-[960px] p-[2px] rounded-[7px] bg-black">
-      <div className="h-full bg-cyan rounded-[5px]" style={{ width: 96 * progress }} />
-    </div>
+    <>
+      <div className="h-[14px] w-full rounded-xl p-[2px] bg-black">
+        <div className="relative h-full w-full rounded-xl bg-rainbow">
+          <div className="absolute right-0 h-full transition-all bg-black" style={{ width: 96 * (10 - progress)}} />
+        </div>
+      </div>
+    </>
   )
 }
