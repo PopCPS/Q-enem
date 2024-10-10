@@ -65,17 +65,17 @@ export const Question = ({
               })}
             </div>
           )}
-          <p>{questions[progress - 1].context}</p>
+          <p>{questions[progress - 1].context.replace(/!\[\]\(.*?\)/g, '')}</p>
           <p>
             {questions[progress - 1].alternativesIntroduction && (
-              questions[progress - 1].alternativesIntroduction
+              questions[progress - 1].alternativesIntroduction.replace(/!\[\]\(.*?\)/g, '')
             )}
           </p>
           <form className="flex flex-col gap-2">
             {questions[progress - 1].alternatives.map(alternative => {
               return (
                 <div className="flex items-center gap-3">
-                  <label className="flex items-center justify-center gap-3 min-w-6">{alternative.letter}
+                  <label className="grid grid-cols-2 gap-2">{alternative.letter}
                     <input 
                       type="radio" 
                       name="alternative" 
@@ -86,7 +86,7 @@ export const Question = ({
                     <p>{alternative.text}</p>
                   )}
                   {alternative.file && (
-                    <img src={alternative.file} alt={`Imagem da opção`} />
+                    <img src={alternative.file} alt={`Imagem da opção ${alternative.letter}`} />
                   )}
                 </div>
               )
