@@ -1,12 +1,20 @@
-interface LogoProps {
+import { ComponentProps } from "react"
+
+interface LogoProps extends ComponentProps<'div'> {
   width: number
 }
 
 export const Logo = ({
-  width
+  width,
+  ...props
 }: LogoProps) => {
+
   return (
-    <div className={`block`} style={{ width: `${width}px` }}>
+    <div 
+      {...props}
+      className={`block`} 
+      style={{ width: `${width}px` }}
+    >
       <img 
         className="w-full" 
         src="/Logo.svg" 

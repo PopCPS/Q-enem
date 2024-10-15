@@ -7,6 +7,8 @@ import { AboutSubject } from './pages/about-subject/index.tsx';
 import { Signup } from './pages/Signup/index.tsx';
 import { SignIn } from './pages/Signin/index.tsx';
 import { Questions } from './pages/question-page/index.tsx';
+import { About } from './pages/about/index.tsx';
+import { Profile } from './pages/profile/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -15,6 +17,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path='/' element={<Home />} />
         <Route path='/:subject' element={<AboutSubject />} />
         <Route path='/questoes' element={<Questions />} />
+        <Route path='/perfil' element={<Profile />} />
+        <Route path='/sobre' element={<About />} />
         <Route path='/signin' element={<SignIn/>} />
         <Route path='/signup' element={<Signup/>} />
       </Routes>

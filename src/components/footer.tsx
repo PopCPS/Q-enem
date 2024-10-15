@@ -1,17 +1,14 @@
-import { useNavigate } from "react-router-dom"
 import { Logo } from "./logo"
 import { Facebook, Instagram, Linkedin } from "lucide-react"
 
 export const Footer = () => {
-
-  const navigate = useNavigate()
 
   return (
     <>
       <div className="flex flex-col items-center justify-center gap-8 p-10 w-full bg-black">
         <Logo width={180} />
         <ul className="flex gap-14 text-sm text-white">
-          <li onClick={() => navigate('/')}>Home</li>
+          <li>Home</li>
           <li>Questões</li>
           <li>Sobre nós</li>
           <li>Contato</li>
