@@ -17,3 +17,7 @@ export interface QuestionInterface {
   title: string;
   year: number;
 }
+
+export interface IStates {
+  questionIndex: number
+}
