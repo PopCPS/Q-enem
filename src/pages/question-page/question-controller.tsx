@@ -1,27 +1,24 @@
 import { Button } from "../../components/button"
+import { useAppDispatch, useAppSelector } from "../../store/hooks"
+import { set_questionIndex } from "../../store/reducers/dataReducer"
 
-interface QuestionControllerProps {
-  progress: number
-  setProgress: (arg: number) => void
-}
+export const QuestionController = () => {
 
-export const QuestionController = ({
-  progress,
-  setProgress
-}: QuestionControllerProps) => {
+  const dispatch = useAppDispatch()
+  const progress = useAppSelector(state => state.apiData.questionIndex)
 
   const nextQuestion = () => {
     if(progress > 9) {
       return
     }
-    setProgress(progress + 1)
+    dispatch(set_questionIndex(progress + 1))
   }
 
   const previousQuestion = () => {
     if(progress < 2) {
       return
     }
-    setProgress(progress - 1)
+    dispatch(set_questionIndex(progress - 1))
   }
 
   return (

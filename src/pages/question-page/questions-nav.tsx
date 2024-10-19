@@ -1,15 +1,12 @@
 import { X } from "lucide-react"
 import { useNavigate } from "react-router-dom"
+import { useAppSelector } from "../../store/hooks"
 
-interface QuestionsNavProps {
-  progress: number
-}
-
-export const QuestionsNav = ({
-  progress
-}: QuestionsNavProps) => {
+export const QuestionsNav = () => {
 
   const navigate = useNavigate()
+
+  const progress = useAppSelector(state => state.apiData.questionIndex)
 
   const leaveQuestions = () => {
     navigate('/')

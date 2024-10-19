@@ -1,13 +1,18 @@
-import { useState } from "react"
 import { Header } from "../../components/header"
 import { ProgressBar } from "./progress-bar"
 import { QuestionsNav } from "./questions-nav"
-import { QuestionController } from "./question-controller"
 import { Question } from "./question"
+import { useAppDispatch } from "../../store/hooks"
+import { useEffect } from "react"
+import { set_questionIndex } from "../../store/reducers/dataReducer"
 
 export const Questions = () => {
 
-  const [ progress, setProgress ] = useState<number>(1)
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(set_questionIndex(1))
+  }, [])
 
   return (
     <div className="flex flex-col items-center gap-24 p-6 min-h-screen">
@@ -15,16 +20,12 @@ export const Questions = () => {
 
       <div className="w-[960px] space-y-6">
         <div className="w-full space-y-2">
-          <QuestionsNav progress={progress} />
-          <ProgressBar progress={progress} />
+          <QuestionsNav />
+          <ProgressBar />
         </div>
 
-        <Question progress={progress} />
+        <Question />
 
-        <QuestionController 
-          progress={progress} 
-          setProgress={setProgress} 
-        />
       </div>
     </div>
   )

@@ -1,10 +1,8 @@
-interface ProgressBarProps {
-  progress: number
-}
+import { useAppSelector } from "../../store/hooks"
 
-export const ProgressBar = ({
-  progress
-}: ProgressBarProps) => {
+export const ProgressBar = () => {
+
+  const progress = useAppSelector(state => state.apiData.questionIndex)
 
   return (
     <>
