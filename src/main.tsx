@@ -22,8 +22,8 @@ createRoot(document.getElementById('root')!).render(
           <Route path='/questoes' element={<Questions />} />
           <Route path='/perfil' element={<Profile />} />
           <Route path='/sobre' element={<About />} />
-          <Route path='/signin' element={<SignIn/>} />
-          <Route path='/signup' element={<Signup/>} />
+          <Route path='/login' element={<SignIn/>} />
+          <Route path='/cadastro' element={<Signup/>} />
         </Routes>
       </Router>
     </Provider>

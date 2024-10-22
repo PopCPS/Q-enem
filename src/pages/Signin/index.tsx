@@ -14,9 +14,7 @@ export const SignIn = () => {
     setIsPasswordVisible(!isPasswordVisible)
   }
 
-  //
-  //  Criar lógica para Login 
-  //
+  
 
   return (
     <div className="flex items-center justify-center h-screen bg-signin bg-no-repeat bg-center bg-cover">
@@ -50,7 +48,7 @@ export const SignIn = () => {
           </Button>
           <Button onClick={e => {
             e.preventDefault()
-            navigate('/signup')
+            navigate('/cadastro')
           }}>
             CADASTRE-SE
           </Button>

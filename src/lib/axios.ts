@@ -6,6 +6,6 @@ export const enem = axios.create({
 
 export const api = axios.create({
   withCredentials: true,
-  baseURL: `${import.meta.env.VITE_BACKEND_URL}`
+  baseURL: `http://localhost:3333`
 })
 

@@ -46,6 +46,7 @@ export const Home = () => {
         {subjects.map(subject => {
           return (
             <button 
+              key={subject.name}
               className="relative group flex items-center justify-center rounded-4 overflow-hidden size-[225px]" 
               onClick={() => navigate(subject.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase())}  
             >
