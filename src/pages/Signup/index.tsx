@@ -1,4 +1,4 @@
-import { AtSign, EyeOff, User } from "lucide-react"
+import { AtSign, Eye, EyeOff, User } from "lucide-react"
 import { Input } from "../../components/input"
 import { Logo } from "../../components/logo"
 import { Button } from "../../components/button"
@@ -151,7 +151,11 @@ export const Signup = () => {
                 e.preventDefault()
                 handlePasswordVisibility()
               }}>
-                <EyeOff size={24} className="flex-shrink-0"  />
+                {isPasswordVisible ? (
+                <Eye size={24} className="flex-shrink-0" />
+              ) : (
+                <EyeOff size={24} className="flex-shrink-0" />
+              )}
               </button>
             </Input>
             <Input
@@ -165,7 +169,11 @@ export const Signup = () => {
                 e.preventDefault()
                 handlePasswordVisibility()
               }}>
-                <EyeOff size={24} className="flex-shrink-0"  />
+                {isPasswordVisible ? (
+                <Eye size={24} className="flex-shrink-0" />
+              ) : (
+                <EyeOff size={24} className="flex-shrink-0" />
+              )}
               </button>
             </Input>
           </div>
