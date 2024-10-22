@@ -3,6 +3,7 @@ import { enem } from "../../lib/axios"
 import { QuestionInterface } from "../../lib/interfaces"
 import { useAppSelector } from "../../store/hooks"
 import { QuestionController } from "./question-controller"
+import { LoadingModal } from "../../components/loading-modal"
 
 export const Question = () => {
 
@@ -10,6 +11,7 @@ export const Question = () => {
   const correctAnswers = useRef<string[]>([])
   const progress = useAppSelector(state => state.apiData.questionIndex)
   const [ questions, setQuestions ] = useState<QuestionInterface[] | null>()
+  const [ isLoading, setIsLoading ] = useState<boolean>(false)
 
   const subjects: Record<string, string> = {
       'ciencias-humanas': 'Ciências Humanas',
@@ -23,11 +25,13 @@ export const Question = () => {
   }
 
   useEffect(() => {
+    setIsLoading(true)
     const year = Math.round(Math.random() * 15) + 2009
     const offset = Math.round(Math.random() * 170)
     enem.get(`https://api.enem.dev/v1/exams/${year}/questions?offset=${offset}`)
     .then(response => {
       setQuestions(response.data.questions)
+      setIsLoading(false)
     })
   }, [])
 
@@ -47,11 +51,10 @@ export const Question = () => {
         <>
           <h2 className="text-4xl">{getSubjectLabel(questions[progress - 1].discipline)}</h2>
           {questions[progress - 1].files.length > 0 && (
-            <div className="flex justify-center">
+            <div className="flex flex-col justify-center">
               {questions[progress - 1].files.map((url, index) => {
                 return (
                   <img
-                    className="max-h-96" 
                     src={url} 
                     alt="Imagem da questão"
                     key={index} 
@@ -60,7 +63,9 @@ export const Question = () => {
               })}
             </div>
           )}
-          <p>{questions[progress - 1].context.replace(/!\[\]\(.*?\)/g, '')}</p>
+          {questions[progress - 1].context && (
+            <p>{questions[progress - 1].context.replace(/!\[\]\(.*?\)/g, '')}</p>
+          )}
           <p>
             {questions[progress - 1].alternativesIntroduction && (
               questions[progress - 1].alternativesIntroduction.replace(/!\[\]\(.*?\)/g, '')
@@ -95,6 +100,9 @@ export const Question = () => {
             <QuestionController />
           </form>
         </>
+      )}
+      {isLoading && (
+        <LoadingModal />
       )}
     </>
   )

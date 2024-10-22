@@ -24,6 +24,7 @@ export const QuestionController = () => {
   return (
     <div className="flex justify-between w-full">
       <Button
+        type="reset"
         size="small"
         disabled={progress == 1 ? true : false}
         onClick={previousQuestion}
@@ -32,6 +33,7 @@ export const QuestionController = () => {
       </Button>
       {progress == 10 ? (
         <Button
+          type="reset"
           size="small"
           onClick={nextQuestion}
         >
@@ -39,6 +41,7 @@ export const QuestionController = () => {
         </Button>
       ) : (
         <Button
+          type="reset"
           size="small"
           onClick={nextQuestion}
         >
