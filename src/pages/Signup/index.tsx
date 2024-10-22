@@ -6,8 +6,11 @@ import { useNavigate } from "react-router-dom"
 import { FormEvent, useState } from "react"
 import { api } from "../../lib/axios"
 import axios, { AxiosError } from "axios"
+import { LoadingModal } from "../../components/loading-modal"
 
 export const Signup = () => {
+
+  const navigate = useNavigate()
 
   const [ user, setUser ] = useState<string | null>(null)
   const [ email, setEmail ] = useState<string | null>(null)
@@ -22,8 +25,6 @@ export const Signup = () => {
   const [ errorMessage, setErrorMessage ] = useState<string | null>(null)
   const [ isLoading, setIsLoading ] = useState<boolean>(false)
   const [ isPasswordVisible, setIsPasswordVisible ] = useState<string>("text")
-
-  const navigate = useNavigate()
 
   const handlePasswordVisibility = () => {
     if(isPasswordVisible == "text") {
@@ -92,7 +93,7 @@ export const Signup = () => {
         setErrorMessage(error.response?.data.error) 
       }
       return
-    })
+    })  
 
     await api.post('/api/login', {
       email: email,
@@ -102,82 +103,90 @@ export const Signup = () => {
       if (axios.isAxiosError(error)) {
         setErrorMessage(error.response?.data.error) 
       }
+      navigate('/login')
     })
+
+    navigate('/home')
 
   }
 
   return (
-    <div className="flex items-center justify-center h-screen bg-signin bg-no-repeat bg-center bg-cover">
-      <form 
-        onSubmit={e => register(e)} 
-        className="flex flex-col gap-8 w-[377px] p-8 bg-transDark/50 rounded-4"
-      > 
-        <Logo width={313} />
+    <>
+      <div className="flex items-center justify-center h-screen bg-signin bg-no-repeat bg-center bg-cover">
+        <form 
+          onSubmit={e => register(e)} 
+          className="flex flex-col gap-8 w-[377px] p-8 bg-transDark/50 rounded-4"
+        > 
+          <Logo width={313} />
 
-        <p className="text-center text-red-600">{errorMessage}</p>
+          <p className="text-center text-red-600">{errorMessage}</p>
 
-        <div className="flex flex-col gap-3">
-          <Input
-            placeholder="Nome de Usuário"
-            type="text"
-            error={isErrorUser}
-            onChange={e => setUser(e.currentTarget.value)}
-            onFocus={() => setIsErrorUser(false)}
-          >
-            <User size={24} className="flex-shrink-0" />
-          </Input>
-          <Input
-            placeholder="E-mail"
-            type="email"
-            error={isErrorEmail}
-            onChange={e => setEmail(e.currentTarget.value)}
-            onFocus={() => setIsErrorEmail(false)}
-          >
-            <AtSign size={24} className="flex-shrink-0" />
-          </Input>
-          <Input
-            placeholder="Senha"
-            type={isPasswordVisible}
-            error={isErrorPass}
-            onChange={e => setPass(e.currentTarget.value)}
-            onFocus={() => setIsErrorPass(false)}
-          >
-            <button onClick={e => {
+          <div className="flex flex-col gap-3">
+            <Input
+              placeholder="Nome de Usuário"
+              type="text"
+              error={isErrorUser}
+              onChange={e => setUser(e.currentTarget.value)}
+              onFocus={() => setIsErrorUser(false)}
+            >
+              <User size={24} className="flex-shrink-0" />
+            </Input>
+            <Input
+              placeholder="E-mail"
+              type="email"
+              error={isErrorEmail}
+              onChange={e => setEmail(e.currentTarget.value)}
+              onFocus={() => setIsErrorEmail(false)}
+            >
+              <AtSign size={24} className="flex-shrink-0" />
+            </Input>
+            <Input
+              placeholder="Senha"
+              type={isPasswordVisible}
+              error={isErrorPass}
+              onChange={e => setPass(e.currentTarget.value)}
+              onFocus={() => setIsErrorPass(false)}
+            >
+              <button onClick={e => {
+                e.preventDefault()
+                handlePasswordVisibility()
+              }}>
+                <EyeOff size={24} className="flex-shrink-0"  />
+              </button>
+            </Input>
+            <Input
+              placeholder="Confirme sua senha"
+              type={isPasswordVisible}
+              error={isErrorRepPass}
+              onChange={e => setRepPass(e.currentTarget.value)}
+              onFocus={() => setIsErrorRepPass(false)}
+            >
+              <button onClick={e => {
+                e.preventDefault()
+                handlePasswordVisibility()
+              }}>
+                <EyeOff size={24} className="flex-shrink-0"  />
+              </button>
+            </Input>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <Button type="submit">
+              CRIAR CONTA
+            </Button>
+            <Button onClick={e => {
               e.preventDefault()
-              handlePasswordVisibility()
+              navigate('/login')
             }}>
-              <EyeOff size={24} className="flex-shrink-0"  />
-            </button>
-          </Input>
-          <Input
-            placeholder="Confirme sua senha"
-            type={isPasswordVisible}
-            error={isErrorRepPass}
-            onChange={e => setRepPass(e.currentTarget.value)}
-            onFocus={() => setIsErrorRepPass(false)}
-          >
-            <button onClick={e => {
-              e.preventDefault()
-              handlePasswordVisibility()
-            }}>
-              <EyeOff size={24} className="flex-shrink-0"  />
-            </button>
-          </Input>
-        </div>
+              LOGIN
+            </Button>
+          </div>
 
-        <div className="flex flex-col gap-3">
-          <Button type="submit">
-            CRIAR CONTA
-          </Button>
-          <Button onClick={e => {
-            e.preventDefault()
-            navigate('/login')
-          }}>
-            LOGIN
-          </Button>
-        </div>
-
-      </form>
-    </div>
+        </form>
+      </div>
+      {isLoading && (
+        <LoadingModal />
+      )}
+    </>
   )
 }
