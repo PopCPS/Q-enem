@@ -1,4 +1,4 @@
-import { AtSign, Eye, EyeOff, User } from "lucide-react"
+import { AtSign, Eye, EyeOff } from "lucide-react"
 import { Logo } from "../../components/logo"
 import { Button } from "../../components/button"
 import { Input } from "../../components/input"
@@ -6,6 +6,7 @@ import { FormEvent, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios, { AxiosError } from "axios"
 import { api } from "../../lib/axios"
+import { LoadingModal } from "../../components/loading-modal"
 
 export const SignIn = () => {
 
@@ -68,56 +69,61 @@ export const SignIn = () => {
   }
 
   return (
-    <div className="flex items-center justify-center h-screen bg-signin bg-no-repeat bg-center bg-cover">
-      <form 
-        onSubmit={e => login(e)} 
-        className="flex flex-col gap-8 w-[377px] p-8 bg-transDark/50 rounded-4"
-      > 
+    <>
+      <div className="flex items-center justify-center h-screen bg-signin bg-no-repeat bg-center bg-cover">
+        <form 
+          onSubmit={e => login(e)} 
+          className="flex flex-col gap-8 w-[377px] p-8 bg-transDark/50 rounded-4"
+        > 
 
-        <Logo width={313} />
+          <Logo width={313} />
 
-        <p className="text-center text-red-600">{errorMessage}</p>
+          <p className="text-center text-red-600">{errorMessage}</p>
 
-        <div className="flex flex-col gap-3">
-          <Input
-            placeholder="E-mail"
-            type="email"
-            error={isErrorEmail}
-            onChange={e => setEmail(e.currentTarget.value)}
-            onFocus={() => setIsErrorEmail(false)}
-          >
-            <AtSign size={24} className="flex-shrink-0" />
-          </Input>
-          <Input
-            placeholder="Senha"
-            type={isPasswordVisible}
-            error={isErrorPass}
-            onChange={e => setPass(e.currentTarget.value)}
-            onFocus={() => setIsErrorPass(false)} 
-          >
-            <button onClick={handlePasswordVisibility}>
-              {isPasswordVisible ? (
-                <Eye size={24} className="flex-shrink-0" />
-              ) : (
-                <EyeOff size={24} className="flex-shrink-0" />
-              )}
-            </button>
-          </Input>
-        </div>
+          <div className="flex flex-col gap-3">
+            <Input
+              placeholder="E-mail"
+              type="email"
+              error={isErrorEmail}
+              onChange={e => setEmail(e.currentTarget.value)}
+              onFocus={() => setIsErrorEmail(false)}
+            >
+              <AtSign size={24} className="flex-shrink-0" />
+            </Input>
+            <Input
+              placeholder="Senha"
+              type={isPasswordVisible}
+              error={isErrorPass}
+              onChange={e => setPass(e.currentTarget.value)}
+              onFocus={() => setIsErrorPass(false)} 
+            >
+              <button onClick={handlePasswordVisibility}>
+                {isPasswordVisible ? (
+                  <Eye size={24} className="flex-shrink-0" />
+                ) : (
+                  <EyeOff size={24} className="flex-shrink-0" />
+                )}
+              </button>
+            </Input>
+          </div>
 
-        <div className="flex flex-col gap-3">
-          <Button type="submit">
-            ENTRAR
-          </Button>
-          <Button onClick={e => {
-            e.preventDefault()
-            navigate('/cadastro')
-          }}>
-            CADASTRE-SE
-          </Button>
-        </div>
+          <div className="flex flex-col gap-3">
+            <Button type="submit">
+              ENTRAR
+            </Button>
+            <Button onClick={e => {
+              e.preventDefault()
+              navigate('/cadastro')
+            }}>
+              CADASTRE-SE
+            </Button>
+          </div>
 
-      </form>
-    </div>
+        </form>
+      </div>
+      {isLoading && (
+        <LoadingModal />
+      )}
+    </>
   )
 }
