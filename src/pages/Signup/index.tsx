@@ -3,7 +3,7 @@ import { Input } from "../../components/input"
 import { Logo } from "../../components/logo"
 import { Button } from "../../components/button"
 import { useNavigate } from "react-router-dom"
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import { api } from "../../lib/axios"
 import axios, { AxiosError } from "axios"
 import { LoadingModal } from "../../components/loading-modal"
@@ -11,6 +11,8 @@ import { LoadingModal } from "../../components/loading-modal"
 export const Signup = () => {
 
   const navigate = useNavigate()
+
+  const [ isAuth, setIsAuth ] = useState<boolean>(false)
 
   const [ user, setUser ] = useState<string | null>(null)
   const [ email, setEmail ] = useState<string | null>(null)
@@ -110,6 +112,24 @@ export const Signup = () => {
 
   }
 
+  const pingAuth = async () => {
+    await api.post('/api/ping')
+    .then(response => {
+      if(response.status === 200) {
+        setIsAuth(true)
+      }
+    })
+  }
+
+  useEffect(() => {
+    pingAuth()
+  })
+
+  useEffect(() => {
+    console.log('first')
+    navigate('/')
+  }, [ isAuth ])
+
   return (
     <>
       <div className="flex items-center justify-center h-screen bg-signin bg-no-repeat bg-center bg-cover">
@@ -147,7 +167,7 @@ export const Signup = () => {
               onChange={e => setPass(e.currentTarget.value)}
               onFocus={() => setIsErrorPass(false)}
             >
-              <button onClick={e => {
+              <button tabIndex={-1} onClick={e => {
                 e.preventDefault()
                 handlePasswordVisibility()
               }}>
@@ -165,7 +185,7 @@ export const Signup = () => {
               onChange={e => setRepPass(e.currentTarget.value)}
               onFocus={() => setIsErrorRepPass(false)}
             >
-              <button onClick={e => {
+              <button tabIndex={-1} onClick={e => {
                 e.preventDefault()
                 handlePasswordVisibility()
               }}>

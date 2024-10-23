@@ -1,8 +1,8 @@
-import { AtSign, Eye, EyeOff } from "lucide-react"
+import { AtSign, Eye, EyeOff, FileChartColumnIncreasingIcon } from "lucide-react"
 import { Logo } from "../../components/logo"
 import { Button } from "../../components/button"
 import { Input } from "../../components/input"
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios, { AxiosError } from "axios"
 import { api } from "../../lib/axios"
@@ -11,6 +11,8 @@ import { LoadingModal } from "../../components/loading-modal"
 export const SignIn = () => {
 
   const navigate = useNavigate()
+
+  const [ isAuth, setIsAuth ] = useState<boolean>(false)
 
   const [ email, setEmail ] = useState<string | null>(null)
   const [ pass, setPass ] = useState<string | null>(null)
@@ -68,6 +70,25 @@ export const SignIn = () => {
     navigate('/home')
   }
 
+  const pingAuth = async () => {
+    await api.post('/api/ping')
+    .then(response => {
+      if(response.status === 200) {
+        setIsAuth(true)
+      }
+    })
+  }
+
+  useEffect(() => {
+    pingAuth()
+  })
+
+  useEffect(() => {
+    if(isAuth === true) {
+      navigate('/')
+    }
+  }, [ isAuth ])
+
   return (
     <>
       <div className="flex items-center justify-center h-screen bg-signin bg-no-repeat bg-center bg-cover">
@@ -97,7 +118,7 @@ export const SignIn = () => {
               onChange={e => setPass(e.currentTarget.value)}
               onFocus={() => setIsErrorPass(false)} 
             >
-              <button onClick={handlePasswordVisibility}>
+              <button tabIndex={-1} onClick={handlePasswordVisibility}>
                 {isPasswordVisible ? (
                   <Eye size={24} className="flex-shrink-0" />
                 ) : (
