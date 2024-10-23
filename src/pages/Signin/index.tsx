@@ -1,4 +1,4 @@
-import { AtSign, Eye, EyeOff, FileChartColumnIncreasingIcon } from "lucide-react"
+import { AtSign, Eye, EyeOff } from "lucide-react"
 import { Logo } from "../../components/logo"
 import { Button } from "../../components/button"
 import { Input } from "../../components/input"
