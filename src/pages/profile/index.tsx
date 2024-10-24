@@ -4,10 +4,12 @@ import { Header } from "../../components/header"
 import { Pencil, User } from "lucide-react"
 import { api } from "../../lib/axios"
 import { Button } from "../../components/button"
+import { useNavigate } from "react-router-dom"
 
 export const Profile = () => {
 
-  const [ isAuth, setIsAuth ] = useState<boolean>(false)
+  const navigate = useNavigate()
+
   const [ userName, setUserName ] = useState<string | null>(null) 
   const [ userEmail, setUserEmail ] = useState<string | null>(null) 
   const [ userProfilePic, setUserProfilePic ] = useState<string | null>(null) 
@@ -19,8 +21,8 @@ export const Profile = () => {
       setUserEmail(response.data.email)
       setUserProfilePic(response.data.image)
     })
-    .catch(error => {
-      console.log(error)
+    .catch(() => {
+      navigate('/login')
     })
   }
 
@@ -40,10 +42,12 @@ export const Profile = () => {
                 <div className="size-64 rounded-full bg-center bg-cover" style={{ backgroundImage: `url(${userProfilePic})`}} />
               ) : (
                 <div className="flex items-center justify-center size-64 rounded-full bg-white">
-                  <User className="flex-1" />
+                  <User size={100} className="flex-1" />
                 </div>
               )}
-              <Pencil size={30} className="absolute hidden group-hover:block" />
+              <div className="rounded-full p-6 absolute hidden border border-black bg-white group-hover:block">
+                <Pencil size={30} />
+              </div>
             </button>
 
             <div className="flex flex-col items-center justify-center p-4 w-full rounded-4 text-white bg-gray-800">
