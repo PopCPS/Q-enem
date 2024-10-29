@@ -14,6 +14,7 @@ export default {
         transDark: '#3F3F3F',
         cyan: '#32ADE6',
         cyanDisabled: '#263e4a',
+        danger: '#C61C23'
       },
       borderRadius: {
         '4': '4px',

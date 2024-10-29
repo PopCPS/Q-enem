@@ -11,7 +11,7 @@ export interface QuestionInterface {
   context: string;
   correctAlternative: string;
   discipline: string;
-  files: string[]; // Assuming files is an array of strings
+  files: string[]
   index: number;
   language: string;
   title: string;
@@ -20,6 +20,14 @@ export interface QuestionInterface {
 
 export interface IStates {
   questionIndex: number
-  answerArray: string[]
+  answerArray: UserAnswer[]
   isLeaveModalOpen: boolean
+  isFinishModalOpen: boolean
+}
+
+export interface UserAnswer {
+  index: number,
+  alternative: string,
+  correctAnswer: string,
+  year: number,
 }

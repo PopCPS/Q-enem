@@ -1,15 +1,17 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { enem } from "../../lib/axios"
 import { QuestionInterface } from "../../lib/interfaces"
-import { useAppSelector } from "../../store/hooks"
+import { useAppDispatch, useAppSelector } from "../../store/hooks"
 import { QuestionController } from "./question-controller"
 import { LoadingModal } from "../../components/loading-modal"
+import { set_answerArray } from "../../store/reducers/dataReducer"
 
 export const Question = () => {
 
-  const [ answerArray, setAnswerArray ] = useState<string[]>([])
-  const correctAnswers = useRef<string[]>([])
+  const dispatch = useAppDispatch()
+
   const progress = useAppSelector(state => state.apiData.questionIndex)
+  const answerArray = useAppSelector(state => state.apiData.answerArray)
   const [ questions, setQuestions ] = useState<QuestionInterface[] | null>()
   const [ isLoading, setIsLoading ] = useState<boolean>(false)
 
@@ -34,16 +36,6 @@ export const Question = () => {
       setIsLoading(false)
     })
   }, [])
-
-  useEffect(() => {
-    if(questions) {
-      correctAnswers.current = questions.map(question => question.correctAlternative)
-    }
-  }, [ questions ])
-
-  useEffect(() => {
-    console.log(answerArray)
-  }, [progress])
 
   return (
     <>
@@ -75,25 +67,30 @@ export const Question = () => {
             {questions[progress - 1].alternatives.map((alternative, index) => {
               return (
                 <div key={index} className="flex items-center gap-3">
-                  <label className="grid grid-cols-2 gap-2">{alternative.letter}
+                  <label className="flex gap-2">{alternative.letter}
                     <input 
                       type="radio" 
                       name="alternative" 
                       value={alternative.letter}
                       onChange={event => {
-                        console.log(event.target.value)
                         const updatedValues = [...answerArray];
-                        updatedValues[progress - 1] = event.target.value;
-                        setAnswerArray(updatedValues);
+                        updatedValues[progress - 1] = {
+                          year: questions[progress - 1].year,
+                          index: questions[progress - 1].index,
+                          alternative: event.currentTarget.value,
+                          correctAnswer: questions[progress - 1].correctAlternative
+                        };
+                        console.log(updatedValues)
+                        dispatch(set_answerArray(updatedValues));
                       }}
                     />
-                  </label>
-                  {alternative.text && (
+                    {alternative.text && (
                     <p>{alternative.text}</p>
-                  )}
-                  {alternative.file && (
-                    <img src={alternative.file} alt={`Imagem da opção ${alternative.letter}`} />
-                  )}
+                    )}
+                    {alternative.file && (
+                      <img src={alternative.file} alt={`Imagem da opção ${alternative.letter}`} />
+                    )}  
+                  </label>
                 </div>
               )
             })}

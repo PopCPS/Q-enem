@@ -8,6 +8,7 @@ import { set_questionIndex } from "../../store/reducers/dataReducer"
 import { LeaveModal } from "./leave-modal"
 import { api } from "../../lib/axios"
 import { useNavigate } from "react-router-dom"
+import { FinishModal } from "./finish-modal"
 
 export const Questions = () => {
 
@@ -15,8 +16,9 @@ export const Questions = () => {
   const navigate = useNavigate()
 
   const [ isAuth, setIsAuth ] = useState<boolean | null>(null)
-
+  
   const isLeaveModalOpen = useAppSelector(state => state.apiData.isLeaveModalOpen)
+  const isFinishModalOpen = useAppSelector(state => state.apiData.isFinishModalOpen)
 
   const pingAuth = async () => {
     await api.post('/api/ping')
@@ -43,7 +45,7 @@ export const Questions = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center gap-24 p-6 min-h-screen">
+      <div className='flex flex-col items-center gap-24 p-6 min-h-screen'>
         <Header isActive={false} />
 
         <div className="w-[960px] space-y-6">
@@ -59,6 +61,9 @@ export const Questions = () => {
       
       {isLeaveModalOpen && (
         <LeaveModal />
+      )}
+      {isFinishModalOpen && (
+        <FinishModal />
       )}
 
     </>

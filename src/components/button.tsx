@@ -12,7 +12,7 @@ const buttonVariants = tv({
     variant: {
       disabled: 'bg-cyanDisabled',
       enabled: 'bg-cyan',
-      danger: 'bg-red-600'
+      danger: 'bg-danger'
     }
   },
 

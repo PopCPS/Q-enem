@@ -1,6 +1,6 @@
 import { Button } from "../../components/button"
 import { useAppDispatch, useAppSelector } from "../../store/hooks"
-import { set_questionIndex } from "../../store/reducers/dataReducer"
+import { set_isFinishModalOpen, set_questionIndex } from "../../store/reducers/dataReducer"
 
 export const QuestionController = () => {
 
@@ -35,7 +35,7 @@ export const QuestionController = () => {
         <Button
           type="reset"
           size="small"
-          onClick={nextQuestion}
+          onClick={() => dispatch(set_isFinishModalOpen(true))}
         >
           Finalizar
         </Button>
