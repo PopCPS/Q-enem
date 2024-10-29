@@ -5,7 +5,13 @@ import { useEffect, useState } from "react"
 import { api } from "../lib/axios"
 import { Button } from "./button"
 
-export const Header = () => {
+interface HeaderProps {
+  isActive: boolean
+}
+
+export const Header = ({ 
+  isActive 
+}: HeaderProps) => {
 
   const navigate = useNavigate()
   const [ isAuth, setIsAuth ] = useState<boolean>(false)
@@ -73,18 +79,22 @@ export const Header = () => {
 
   return (
     <div className="flex justify-between items-center w-full h-20 px-6 rounded-4 bg-black">
-      <Logo onClick={navToHome} width={170} />
+      <Logo onClick={() => isActive && navToHome()} width={170} />
       <div className="flex gap-5 relative">
-        <button
-          onClick={navToQuestions} 
-          className="w-20 text-white shrink-0 hover:font-bold">
-          Estudar
-        </button>
-        <button
-          onClick={navToAboutUs}  
-          className="w-20 text-white shrink-0 hover:font-bold">
-          Sobre nós
-        </button>
+        {isActive && (
+          <>
+            <button
+              onClick={navToQuestions} 
+              className="w-20 text-white shrink-0 hover:font-bold">
+              Estudar
+            </button>
+            <button
+              onClick={navToAboutUs}  
+              className="w-20 text-white shrink-0 hover:font-bold">
+              Sobre nós
+            </button>
+          </>
+        )}
         {isAuth ? (
           <>
             <button 

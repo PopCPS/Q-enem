@@ -19,7 +19,7 @@ export const LeaveModal = () => {
 
   return (
     <>
-      <div className="inset-0 absolute bg-black bg-opacity-60 flex items-center justify-center">
+      <div className="inset-0 absolute bg-black bg-opacity-60 flex items-center justify-center z-20">
         <div className="flex flex-col gap-6 p-6 rounded-4 w-[550px] bg-white">
           <div className="flex justify-between items-center">
             <span className="text-2xl">Deseja sair das questões?</span>

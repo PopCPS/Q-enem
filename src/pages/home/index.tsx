@@ -30,7 +30,7 @@ export const Home = () => {
     <>
       <div className="min-size-screen p-6 flex flex-col items-center gap-8">
 
-        <Header />
+        <Header isActive={true} />
 
         <div className="flex w-full h-[640px] relative">
           <img 

@@ -39,7 +39,7 @@ export const AboutSubject = () => {
       {subject && subjects.includes(subject) && (
         <>
           <div className="flex flex-col items-center gap-6 p-6 mb-20">
-            <Header />
+            <Header isActive={true} />
             <div 
               className="flex items-center justify-center bg-center bg-cover w-full h-[640px]"
               style={{ backgroundImage: `url('/about/${subject}.jpeg')` }}

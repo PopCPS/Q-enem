@@ -12,7 +12,7 @@ export const Logo = ({
   return (
     <div 
       {...props}
-      className={`block`} 
+      className={`block cursor-pointer`} 
       style={{ width: `${width}px` }}
     >
       <img 

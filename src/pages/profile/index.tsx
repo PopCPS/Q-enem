@@ -33,7 +33,7 @@ export const Profile = () => {
   return (
     <>
       <div className="p-6 space-y-6">
-        <Header />
+        <Header isActive={true} />
 
         <div className="flex justify-center w-full rounded-4 bg-black">
           <div className="flex flex-col items-center gap-6 p-6 w-[500px]">

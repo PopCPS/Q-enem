@@ -44,7 +44,7 @@ export const Questions = () => {
   return (
     <>
       <div className="flex flex-col items-center gap-24 p-6 min-h-screen">
-        <Header />
+        <Header isActive={false} />
 
         <div className="w-[960px] space-y-6">
           <div className="w-full space-y-2">

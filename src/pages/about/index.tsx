@@ -7,7 +7,7 @@ export const About = () => {
     
       <div className="min-size-screen p-6 flex flex-col items-center gap-16">
       
-      <Header />
+      <Header isActive={true} />
 
       <h2 className="font-title text-[48px]">Objetivo</h2>
 
