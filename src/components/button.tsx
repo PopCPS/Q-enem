@@ -9,15 +9,16 @@ const buttonVariants = tv({
       full: "w-full",
       small: "p-4"
     },
-    disabled: {
-      true: 'bg-cyanDisabled',
-      false: 'bg-cyan'
+    variant: {
+      disabled: 'bg-cyanDisabled',
+      enabled: 'bg-cyan',
+      danger: 'bg-red-600'
     }
   },
 
   defaultVariants: {
     size: 'full',
-    disabled: false
+    variant: 'enabled',
   }
 })
 
@@ -28,11 +29,11 @@ interface ButtonProps extends ComponentProps<'button'>, VariantProps<typeof butt
 export const Button = ({
   children,
   size,
-  disabled,
+  variant,
   ...props
 }: ButtonProps) => {
   return (
-    <button {...props} className={buttonVariants({ size, disabled })}>
+    <button {...props} className={buttonVariants({ size, variant })}>
       {children}
     </button>
   )

@@ -4,7 +4,8 @@ import { IStates } from "../../lib/interfaces";
 
 const initialState: IStates = {
   questionIndex: 1,
-  answerArray: []
+  answerArray: [],
+  isLeaveModalOpen: false
 }
 
 export const dataSlice = createSlice({
@@ -16,13 +17,17 @@ export const dataSlice = createSlice({
     },
     set_answerArray: (state, action: PayloadAction<string[]>) => {
       state.answerArray = action.payload
-    }
+    },
+    set_isLeaveModalOpen: (state, action: PayloadAction<boolean>) => {
+      state.isLeaveModalOpen = action.payload
+    },
   }
 })
 
 export const {
   set_questionIndex,
-  set_answerArray
+  set_answerArray,
+  set_isLeaveModalOpen
 } = dataSlice.actions
 
 export default dataSlice.reducer

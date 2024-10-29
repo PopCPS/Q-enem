@@ -26,7 +26,7 @@ export const QuestionController = () => {
       <Button
         type="reset"
         size="small"
-        disabled={progress == 1 ? true : false}
+        variant={progress == 1 ? 'disabled' : 'enabled'}
         onClick={previousQuestion}
       >
         Anterior

@@ -21,4 +21,5 @@ export interface QuestionInterface {
 export interface IStates {
   questionIndex: number
   answerArray: string[]
+  isLeaveModalOpen: boolean
 }
