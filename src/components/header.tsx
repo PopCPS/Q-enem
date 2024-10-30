@@ -56,9 +56,6 @@ export const Header = ({
     .then(response => {
       setUserProfilePic(response.data.image)
     })
-    .catch(error => {
-      console.log(error)
-    })
   }
 
   const logout = async () => {
@@ -74,7 +71,9 @@ export const Header = ({
   }, [])
 
   useEffect(() => {
-    getUserData()
+    if(isAuth) {
+      getUserData()
+    }
   }, [ isAuth ])
 
   return (

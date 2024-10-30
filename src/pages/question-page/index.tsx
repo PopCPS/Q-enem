@@ -39,7 +39,7 @@ export const Questions = () => {
 
   useEffect(() => {
     if(isAuth === false) {
-      navigate('/')
+      navigate('/login')
     }
   }, [ isAuth ])
 
