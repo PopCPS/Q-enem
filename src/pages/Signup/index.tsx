@@ -26,7 +26,7 @@ export const Signup = () => {
 
   const [ errorMessage, setErrorMessage ] = useState<string | null>(null)
   const [ isLoading, setIsLoading ] = useState<boolean>(false)
-  const [ isPasswordVisible, setIsPasswordVisible ] = useState<string>("text")
+  const [ isPasswordVisible, setIsPasswordVisible ] = useState<string>("password")
 
   const handlePasswordVisibility = () => {
     if(isPasswordVisible == "text") {
@@ -126,8 +126,10 @@ export const Signup = () => {
   })
 
   useEffect(() => {
-    console.log('first')
-    navigate('/')
+    if(isAuth) {
+      console.log('first')
+      navigate('/')
+    }
   }, [ isAuth ])
 
   return (
@@ -171,11 +173,11 @@ export const Signup = () => {
                 e.preventDefault()
                 handlePasswordVisibility()
               }}>
-                {isPasswordVisible ? (
-                <Eye size={24} className="flex-shrink-0" />
-              ) : (
-                <EyeOff size={24} className="flex-shrink-0" />
-              )}
+                {isPasswordVisible === 'text' ? (
+                  <Eye size={24} className="flex-shrink-0" />
+                ) : (
+                  <EyeOff size={24} className="flex-shrink-0" />
+                )}
               </button>
             </Input>
             <Input
@@ -189,13 +191,13 @@ export const Signup = () => {
                 e.preventDefault()
                 handlePasswordVisibility()
               }}>
-                {isPasswordVisible ? (
-                <Eye size={24} className="flex-shrink-0" />
-              ) : (
-                <EyeOff size={24} className="flex-shrink-0" />
-              )}
+                {isPasswordVisible === 'text' ? (
+                  <Eye size={24} className="flex-shrink-0" />
+                ) : (
+                  <EyeOff size={24} className="flex-shrink-0" />
+                )}
               </button>
-            </Input>
+            </Input>  
           </div>
 
           <div className="flex flex-col gap-3">

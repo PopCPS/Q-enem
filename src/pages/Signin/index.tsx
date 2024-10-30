@@ -22,7 +22,7 @@ export const SignIn = () => {
 
   const [ errorMessage, setErrorMessage ] = useState<string | null>(null)
   const [ isLoading, setIsLoading ] = useState<boolean>(false)
-  const [ isPasswordVisible, setIsPasswordVisible ] = useState<string>("text")
+  const [ isPasswordVisible, setIsPasswordVisible ] = useState<string>("password")
 
   const handlePasswordVisibility = () => {
     if(isPasswordVisible == "text") {
@@ -118,8 +118,8 @@ export const SignIn = () => {
               onChange={e => setPass(e.currentTarget.value)}
               onFocus={() => setIsErrorPass(false)} 
             >
-              <button tabIndex={-1} onClick={handlePasswordVisibility}>
-                {isPasswordVisible ? (
+              <button type="button" tabIndex={-1} onClick={handlePasswordVisibility}>
+                {isPasswordVisible === 'text' ? (
                   <Eye size={24} className="flex-shrink-0" />
                 ) : (
                   <EyeOff size={24} className="flex-shrink-0" />
@@ -132,7 +132,7 @@ export const SignIn = () => {
             <Button type="submit">
               ENTRAR
             </Button>
-            <Button onClick={e => {
+            <Button type="button" onClick={e => {
               e.preventDefault()
               navigate('/cadastro')
             }}>
